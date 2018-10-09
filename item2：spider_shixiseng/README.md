@@ -27,78 +27,78 @@
 - **确定构建的表和连接关系**
 
 
-    表一：dt_company
-    
-    ID: id
-    采集对象编号：doid
-    所属站点：site
-    公司名称：company_name
-    注册时间：company_regtime
-    成立时间：company_uptime
-    公司性质：company_kind
-    所属行业：company_industry
-    注册资金：company_capital
-    员工人数：company_workers
-    所在地：company_area
-    邮政编码：company_postcode
-    公司联系人：company_ecname
-    公司电话：company_phone
-    手机号码：company_mobile
-    公司传真：company_fax
-    公司地址：company_address
-    公司网址：company_website
-    电子邮箱：company_email
-    公司描述：company_detail
-    最后更新时间：company_updatetime
-    企业状态：status
-    采集源url：url
-    采集时间:addtime
-    更新时间:updatetime
-    对应乐职网etid:etid
-    对应乐职网企业名称:etname
-    类别:type
-    
-    
-    表二：dt_jobs_2
-    
-    site  varchar(16) NOT NULL站点
-    doid  varchar(56) NOT NULL采集对像编号
-    company_name  varchar(256) NOT NULL企业名称
-    job_name  varchar(256) NOT NULL职位名称
-    job_updatetime  int(11) NOT NULL更新时间
-    job_starttime  int(11) NOT NULL发布日期
-    job_endtime  int(11) NOT NULL结止日期
-    company_industry  varchar(56) NOT NULL所在行业
-    job_type  varchar(128) NOT NULL职位类别
-    company_kind  varchar(56) NOT NULL企业类型
-    job_area  varchar(128) NOT NULL工作地点
-    job_mode  varchar(56) NOT NULL工作类型
-    job_year  varchar(56) NOT NULL工作年限
-    job_money  varchar(56) NOT NULL工资
-    job_degree  varchar(56) NOT NULL学历
-    job_sex  varchar(56) NOT NULL性别
-    job_age1  varchar(56) NOT NULL要求年龄
-    job_age2  varchar(56) NOT NULL
-    job_lang  varchar(56) NOT NULL外语要求
-    job_major  varchar(56) NOT NULL专业要求
-    job_rest  varchar(56) NOT NULL是否双休
-    job_welfare  varchar(56) NOT NULL五险一金
-    job_mail  varchar(56) NOT NULL邮箱地址
-    job_detailed  text NOT NULL工作详细
-    job_demand text NOT NULL工作要求
-    job_num varchar(56) NOT NULL招聘人数
-    job_department  varchar(56) NOT NULL所属部门
-    addtime int(11) NOT NULL采集时间
-    updatetime int(11) NOT NULL更新时间
-    url varchar(128) NOT NULL采集源url
-    statustiny int(1) NOT NULL职位状态 -9周伯通职位暂不处理
-    etid  int(11) NOT NULL对应乐职网etid
-    etjobid  int(11) NOT NULL对应乐职网职位ID
-    etjobname  varchar(128) NOT NULL对应乐职网职位名称
-    job_report  varchar(56) NOT NULL汇报对象
-    job_reportnums  varchar(32) NOT NULL下属人数
-    job_coreskills  varchar(256) NOT NULL技能关键字
-    isheadhuntertiny  int(4) NOT NULL是否猎头职位：1是，0否
+	    表一：dt_company
+
+	    ID: id
+	    采集对象编号：doid
+	    所属站点：site
+	    公司名称：company_name
+	    注册时间：company_regtime
+	    成立时间：company_uptime
+	    公司性质：company_kind
+	    所属行业：company_industry
+	    注册资金：company_capital
+	    员工人数：company_workers
+	    所在地：company_area
+	    邮政编码：company_postcode
+	    公司联系人：company_ecname
+	    公司电话：company_phone
+	    手机号码：company_mobile
+	    公司传真：company_fax
+	    公司地址：company_address
+	    公司网址：company_website
+	    电子邮箱：company_email
+	    公司描述：company_detail
+	    最后更新时间：company_updatetime
+	    企业状态：status
+	    采集源url：url
+	    采集时间:addtime
+	    更新时间:updatetime
+	    对应乐职网etid:etid
+	    对应乐职网企业名称:etname
+	    类别:type
+
+
+	    表二：dt_jobs_2
+
+	    site  varchar(16) NOT NULL站点
+	    doid  varchar(56) NOT NULL采集对像编号
+	    company_name  varchar(256) NOT NULL企业名称
+	    job_name  varchar(256) NOT NULL职位名称
+	    job_updatetime  int(11) NOT NULL更新时间
+	    job_starttime  int(11) NOT NULL发布日期
+	    job_endtime  int(11) NOT NULL结止日期
+	    company_industry  varchar(56) NOT NULL所在行业
+	    job_type  varchar(128) NOT NULL职位类别
+	    company_kind  varchar(56) NOT NULL企业类型
+	    job_area  varchar(128) NOT NULL工作地点
+	    job_mode  varchar(56) NOT NULL工作类型
+	    job_year  varchar(56) NOT NULL工作年限
+	    job_money  varchar(56) NOT NULL工资
+	    job_degree  varchar(56) NOT NULL学历
+	    job_sex  varchar(56) NOT NULL性别
+	    job_age1  varchar(56) NOT NULL要求年龄
+	    job_age2  varchar(56) NOT NULL
+	    job_lang  varchar(56) NOT NULL外语要求
+	    job_major  varchar(56) NOT NULL专业要求
+	    job_rest  varchar(56) NOT NULL是否双休
+	    job_welfare  varchar(56) NOT NULL五险一金
+	    job_mail  varchar(56) NOT NULL邮箱地址
+	    job_detailed  text NOT NULL工作详细
+	    job_demand text NOT NULL工作要求
+	    job_num varchar(56) NOT NULL招聘人数
+	    job_department  varchar(56) NOT NULL所属部门
+	    addtime int(11) NOT NULL采集时间
+	    updatetime int(11) NOT NULL更新时间
+	    url varchar(128) NOT NULL采集源url
+	    statustiny int(1) NOT NULL职位状态 -9周伯通职位暂不处理
+	    etid  int(11) NOT NULL对应乐职网etid
+	    etjobid  int(11) NOT NULL对应乐职网职位ID
+	    etjobname  varchar(128) NOT NULL对应乐职网职位名称
+	    job_report  varchar(56) NOT NULL汇报对象
+	    job_reportnums  varchar(32) NOT NULL下属人数
+	    job_coreskills  varchar(256) NOT NULL技能关键字
+	    isheadhuntertiny  int(4) NOT NULL是否猎头职位：1是，0否
 
 
 - **选择需要连接的数据库**
