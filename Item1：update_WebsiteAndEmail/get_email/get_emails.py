@@ -10,7 +10,7 @@ def get_email(text):
     """
     正则匹配email
     :param text: 需要匹配的字符串
-    :return: email
+    :return: emails
     """
     text = str(text)
     # print type(text)

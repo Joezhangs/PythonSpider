@@ -21,26 +21,27 @@ et_info_urls = []
 et_statuss = []
 def spider(et_date):
     # print et_date
-    et_info_url = get_website(et_date[0])
-    et_info_url['etupdatetime'] = time.time()
-    et_info_urls.append(et_info_url)
-    et_status = {}
-    if et_info_url['etwebsite']:
-        print utils.current_time(), '正在更新状态表数据status=3......'
-        et_status['etid'] = et_info_url['etid']
-        et_status["addtime"] = time.time()
-        et_status['url_status'] = 3
-        global a
-        a += 1
-        # print et_status
-        et_statuss.append(et_status)
-    else:
-        print utils.current_time(), '正在更新状态表数据status=2......'
-        et_status['etid'] = et_info_url['etid']
-        et_status["addtime"] = time.time()
-        et_status['url_status'] = 2
-        # print et_status
-        et_statuss.append(et_status)
+    if et_date != []:
+        et_info_url = get_website(et_date[0])
+        et_info_url['etupdatetime'] = time.time()
+        et_info_urls.append(et_info_url)
+        et_status = {}
+        if et_info_url['etwebsite']:
+            print utils.current_time(), '正在更新状态表数据status=3......'
+            et_status['etid'] = et_info_url['etid']
+            et_status["addtime"] = time.time()
+            et_status['url_status'] = 3
+            global a
+            a += 1
+            # print et_status
+            et_statuss.append(et_status)
+        else:
+            print utils.current_time(), '正在更新状态表数据status=2......'
+            et_status['etid'] = et_info_url['etid']
+            et_status["addtime"] = time.time()
+            et_status['url_status'] = 2
+            # print et_status
+            et_statuss.append(et_status)
     # print et_info_url
 
 

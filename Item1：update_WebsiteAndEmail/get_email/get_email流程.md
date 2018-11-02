@@ -1,4 +1,6 @@
-# email_caiji
+
+实习期间，公司安排了一个简单的任务，下面是任务要求：
+
 ### 任务要求： ###
 **基于招聘站点和企业名称的 email采集**
 
@@ -7,43 +9,20 @@
 	3. 从招聘页面提取出企业的email（需要排除招聘站点官方、猎头相关的email）。
 	4. 将采集的结果保存到数据库
 
-
+理一下大概的思路
 
 ### 基本思路： ###
 
-1. 初始url分几钟：智联，猎聘，大街，前程无忧，中华英才网 这些都是需要进行单个站点分别编写代码
+1. 初始url分几钟：智联，猎聘，大街，前程无忧，中华英才网 这些都是需要进行单个站点的解析分别编写代码
 2. 连接数据库提取企业名称，插入url，进行get请求
-	- get_db_company
 	- get_url_html 请求模块
-3. 判断是需要的企业信息url
+3. 解析各个站点获取信息
     - 如何判断？？存在网页信息不对称
-4. 进入后进行正则匹配，匹配email，爬取下来
+4. 信息进行正则匹配，匹配email
 	- get_emails 模块
+5. 存到数据库
 
 
-### 代码大纲： ###
-
-**main函数：**
-    
-    1. 连接数据库
-        输入：无
-        输出：conn，cursor
-    2. 获取公司信息：etid，etname
-        输入：cursor
-        输出：companys
-    3. 站点代码：获取网页信息，1，2，3
-        输入：url
-        输出：text
-    4. 正则email，并去重
-        输入：text
-        输出：emails
-    5. 存入数据库：一次存入一条信息
-        输入：conn, companys_email, table_name
-        输出：无
-    6. 关闭数据库
-        输入：conn，cursor
-        输出：无
-    
 
 
 ### 爬虫流程： ###
@@ -65,25 +44,31 @@
 	先源头搜索
 ```
 graph LR
-单个站点的内部搜索n-->二级页面
-二级页面-->三级页面1
-二级页面-->.........
-二级页面-->三级页面n
-
-```
-```
-graph LR
-单个站点的内部搜索n-->二级页面
-二级页面-->三级页面1
-二级页面-->.........
-二级页面-->三级页面n
+单个公司-->单个站点搜索1
+单个站点搜索1-->二级页面1
+单个站点搜索1-->二级页面2
+二级页面1-->三级页面1
+二级页面1-->........
+二级页面1-->三级页面n
+二级页面2-->三级页面m
+二级页面2-->.........
+二级页面2-->三级页面m+n
 
 ```
 
 
 5. **选择需要连接的数据库和表**
 
-	暂时无
+	连接的表et_ema的DDL信息：
+	    
+        CREATE TABLE `et_ema` (
+          `id` int(12) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+          `etid` int(11) NOT NULL COMMENT '序号',
+          `email` varchar(50) NOT NULL DEFAULT '' COMMENT '公司email',
+          PRIMARY KEY (`id`),
+          UNIQUE KEY `etid,email` (`etid`,`email`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=1776 DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='公司email'
+
 
 6. **确定爬取的字段和连接关系**
 
@@ -109,6 +94,30 @@ graph LR
 
     简单使用多协程
 
+
+### 代码大纲： ###
+
+**main函数：**
+    
+    1. 连接数据库
+        输入：无
+        输出：conn，cursor
+    2. 获取公司信息：etid，etname
+        输入：cursor
+        输出：companys
+    3. 站点代码：获取网页信息，1，2，3
+        输入：url
+        输出：text
+    4. 正则email，并去重
+        输入：text
+        输出：emails
+    5. 存入数据库：一次存入一条信息
+        输入：conn, companys_email, table_name
+        输出：无
+    6. 关闭数据库
+        输入：conn，cursor
+        输出：无
+    
 
 
 ## 遇到的问题：

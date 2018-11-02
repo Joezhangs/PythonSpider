@@ -18,7 +18,7 @@ def get_etid():
     """
     logging.info('%s 本地表中读取所有未处理的etid...' % utils.current_time())
     conn = utils.get_local_db()
-    result = conn.query("select etid from et_info_status where url_status=1 limit 100")
+    result = conn.query("select etid from et_info_status where url_status=1 limit 200")
     conn.close()
     return result
 
