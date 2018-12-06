@@ -12,6 +12,8 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 """
 个人常用工具库（此库不是所有的代码都会使用）
+注意：此工具库适用于python2，与python3不兼容
+
 
 请求模块：get_url_html()
 连接本地库（默认spider）：open_local_db()
@@ -107,9 +109,9 @@ def open_line_db(db="lz_datastore"):
     :return: 创建好的数据库连接
     """
     print now_time(), '连接线上数据库%s' % db
-    conn = MySQLdb.connect(host='rm-2zeuz492sf50a2t27ko.mysql.rds.aliyuncs.com',
-                           user='gcdata2012',
-                           passwd='gdlz_2017',
+    conn = MySQLdb.connect(host='***',
+                           user='***',
+                           passwd='***',
                            db=db,
                            port=3306,
                            charset='gbk')
