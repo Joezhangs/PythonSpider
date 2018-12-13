@@ -35,7 +35,7 @@ def random_steep():
     防止封号，随机暂停
     :return:
     """
-    a = random.randint(2, 5)
+    a = random.randint(2, 8)
     logger.info("暂停{}秒".format(a))
     time.sleep(a)
 
@@ -56,7 +56,7 @@ def get_cookies():
     wait = WebDriverWait(chrome, 10)
     wait.until(EC.element_to_be_clickable(('xpath', "//input[@class='loginBtn']")))
     time.sleep(1)
-    user_name = "15755656557"  # 你的用户名
+    user_name = "15755656557"  # 你的手机号
     password = "199618hu"  # 你的密码
     chrome.find_element("xpath", "//input[@class='loginPhoneInput']").send_keys(user_name)
     time.sleep(1)
@@ -89,7 +89,7 @@ def cookies_expried():
     判断cookies是否过期，若过期会自动登录获取cookies
     :return:
     """
-    file = os.path.isfile("cookies")
+    file = os.path.isfile("cookie.json")
     print(file)
     if not file:
         get_cookies()
@@ -116,6 +116,7 @@ def json_info(html):
     :param html:
     :return:
     """
+    print(html.text)
     c = re.search('JSON\.parse\("(.*?)"\);</script><script\ssrc=', html.text, re.S).group(1)  # 正则匹配所需要的数据
     d = c.replace('\\u0022', '"').replace("\\u002D", "-").replace("\\u0026", '&').replace("\\u005C", "\\")  # 对数据进行处理
     data = json.loads(d)
@@ -175,7 +176,9 @@ def work_exp(id_num, req, data):
         #  logger.info('start_url', share_url)
         random_steep()
         try:
+            print(share_url)
             start_html = req.get(share_url)  # 用于获取的是公司的全称
+            print(start_html)
             dataz = json_info(start_html)
             fullname = dataz["data"]["data"]["cinfo"]["fullname"]
             work_exp["stdname"] = fullname
