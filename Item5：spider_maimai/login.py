@@ -14,6 +14,7 @@ import random
 import hu_utils3
 import logging
 from logging.handlers import RotatingFileHandler
+import os
 
 logger = logging.getLogger(__name__)
 logger.setLevel(level=logging.INFO)
@@ -55,8 +56,8 @@ def get_cookies():
     wait = WebDriverWait(chrome, 10)
     wait.until(EC.element_to_be_clickable(('xpath', "//input[@class='loginBtn']")))
     time.sleep(1)
-    user_name = "15755656557"
-    password = "199618hu"
+    user_name = "15755656557"  # 你的用户名
+    password = "199618hu"  # 你的密码
     chrome.find_element("xpath", "//input[@class='loginPhoneInput']").send_keys(user_name)
     time.sleep(1)
     chrome.find_element("xpath", "//input[@id='login_pw']").send_keys(password)
@@ -71,10 +72,10 @@ def get_cookies():
 
 def get_req():
     """
-    打开cookies文件获取cookies，进行requests请求
+    打开cookies文件获取cookie，进行requests请求
     :return:
     """
-    logger.info("打开cookies文件获取cookies")
+    logger.info("打开cookie文件获取cookies")
     with open("cookie.json", "r")as f:
         cookies = json.loads(f.readline())
     req = requests.Session()
@@ -88,6 +89,10 @@ def cookies_expried():
     判断cookies是否过期，若过期会自动登录获取cookies
     :return:
     """
+    file = os.path.isfile("cookies")
+    print(file)
+    if not file:
+        get_cookies()
     req = get_req()
     url = "https://maimai.cn/web/search_center?type=contact&query=cho&highlight=true"
     response = req.get(url)
@@ -169,13 +174,17 @@ def work_exp(id_num, req, data):
         share_url = work_expz["company_info"]["share_url"]
         #  logger.info('start_url', share_url)
         random_steep()
-        start_html = req.get(share_url)  # 用于获取的是公司的全称
-        dataz = json_info(start_html)
-        fullname = dataz["data"]["data"]["cinfo"]["fullname"]
+        try:
+            start_html = req.get(share_url)  # 用于获取的是公司的全称
+            dataz = json_info(start_html)
+            fullname = dataz["data"]["data"]["cinfo"]["fullname"]
+            work_exp["stdname"] = fullname
+        except:
+            logger.info("获取公司全称失败")
+            work_exp["stdname"] = ""
         start_date = work_expz["start_date"]
         end_date = work_expz["end_date"]
         work_exp["company"] = work_expz["company"]
-        work_exp["stdname"] = fullname
         work_exp["et_url"] = share_url
         if "-" in str(start_date):
             work_exp["start_year"] = int(start_date.split("-")[0])
