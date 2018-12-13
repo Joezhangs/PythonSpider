@@ -15,9 +15,9 @@ def open_line_db(db="lz_datastore"):
     :return: 创建好的数据库连接
     """
     print current_time(), '连接线上数据库%s' % db
-    conn = MySQLdb.connect(host='rm-2zeuz492sf50a2t27ko.mysql.rds.aliyuncs.com',
-                           user='gcdata2012',
-                           passwd='gdlz_2017',
+    conn = MySQLdb.connect(host='***',
+                           user='***',
+                           passwd='***',
                            db=db,
                            port=3306,
                            charset='gbk')

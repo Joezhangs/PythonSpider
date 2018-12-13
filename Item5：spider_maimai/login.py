@@ -56,8 +56,8 @@ def get_cookies():
     wait = WebDriverWait(chrome, 10)
     wait.until(EC.element_to_be_clickable(('xpath', "//input[@class='loginBtn']")))
     time.sleep(1)
-    user_name = "15755656557"  # 你的手机号
-    password = "199618hu"  # 你的密码
+    user_name = "***"  # 你的手机号
+    password = "***"  # 你的密码
     chrome.find_element("xpath", "//input[@class='loginPhoneInput']").send_keys(user_name)
     time.sleep(1)
     chrome.find_element("xpath", "//input[@id='login_pw']").send_keys(password)

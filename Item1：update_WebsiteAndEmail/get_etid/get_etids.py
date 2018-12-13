@@ -14,7 +14,7 @@ from odps import ODPS
 
 logging.basicConfig(filename='logger.log', level=logging.INFO)
 logging.info("——————————开始获取etid——————————")
-o = ODPS('LTAIzEuNzcL6qJJ8', 'eUAgj9ijhWCvOQ3w5Uv3FkwhNxvPF2', 'database_test', 'http://service.odps.aliyun.com/api')
+o = ODPS('***', '***', '***', 'http:/.odps.aliyun.com/api')
 
 def get_int_day():
     """

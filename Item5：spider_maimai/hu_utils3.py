@@ -5,8 +5,6 @@
 # software: PyCharm
 import time
 import pymysql
-import requests
-import random
 import warnings
 
 warnings.filterwarnings("ignore")

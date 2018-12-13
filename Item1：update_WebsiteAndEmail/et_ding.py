@@ -61,10 +61,10 @@ def main():
     text = "# 24小时内更新email情况统计\n\n----------\n\n- 总更新数：%s " \
            "\n\n- 更新成功数：%s" \
            "\n\n- 更新失败数：%s" % (num1, a1, num1 - a1)
-    url = "http://47.95.214.108:6312/add/"
+    url = "http://47.95.214.108:631/add/"
     data = {
         'text': text,
-        'access_token': '1e28405a87104513864b952cbeb5fcbcf6cec68374d053f2ac3eacf690df04ce',
+        'access_token': '***', # 填写自己的信息
         "title": "数据运营机器人"
     }
     html = requests.post(url, data=data).text
@@ -81,10 +81,10 @@ def main():
     text = "# 24小时内更新官网URL情况统计\n\n----------\n\n- 总更新数：%s " \
            "\n\n- 更新成功数：%s" \
            "\n\n- 更新失败数：%s" % (num2, a2, num2 - a2)
-    url = "http://47.95.214.108:6312/add/"
+    url = "http://47.95.214.08:631/add/"
     data = {
         'text': text,
-        'access_token': '1e28405a87104513864b952cbeb5fcbcf6cec68374d053f2ac3eacf690df04ce',
+        'access_token': '***',  # 填写自己的信息
         "title": "数据运营机器人"
     }
     html = requests.post(url, data=data).text

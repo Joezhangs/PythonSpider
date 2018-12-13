@@ -10,21 +10,21 @@ config_dict = {
     'LOCAL_DB_USER': 'root',
     'LOCAL_DB_PWD': '666',
     # 从（只读）数据库内网host
-    'READ_DB_HOST': 'rm-2zeuz492sf50a2t27ko.mysql.rds.aliyuncs.com',
+    'READ_DB_HOST': '***',
     # 从（只读）数据库内网端口
     'READ_DB_PORT': 3306,
     # 从（只读）数据库用户名
-    'READ_DB_USER': 'gcdata2012',
+    'READ_DB_USER': '***',
     # 从（只读）数据库密码
-    'READ_DB_PWD': 'gdlz_2017',
+    'READ_DB_PWD': '***',
     # 线上（读写）数据库内网host
-    'WRITE_DB_MAP_HOST': 'rm-2zeuz492sf50a2t27ko.mysql.rds.aliyuncs.com',
+    'WRITE_DB_MAP_HOST': '***',
     # 线上（读写）数据库内网端口
     'WRITE_DB_MAP_PORT': 3306,
     # 线上（读写）数据库用户名
-    'WRITE_DB_USER': 'gcdata2012',
+    'WRITE_DB_USER': '***',
     # 线上（读写）数据库密码
-    'WRITE_DB_PWD': 'gdlz_2017',
+    'WRITE_DB_PWD': '***',
     # 站点别称
     'CAIJI_SITE':'email',
     # 最大允许运行时长
