@@ -1,5 +1,13 @@
-## 采集七麦网-爬虫文档-更新于2018/11/21
+## 采集七麦网-爬虫文档-更新于2018/12/25
+
+## 简介：
+
+- qimai.py:七麦app排行榜详细数据采集
+- qimai_applets.py:七麦微信公众号排行榜采集
+- qimai_weixin.py:七麦微信小程序排行榜采集
+
 ### 1. 采集需求
+
 #### 采集网站：七麦网
 https://www.qimai.cn
 
@@ -28,7 +36,7 @@ https://www.qimai.cn/rank/index/brand/free/country/cn/genre/6005/device/iphone
 - 榜单排名：电子市场、市场分类、实时排名、排名统计时间
 - 移动端版本关联：关联同一个应用的iOS版和安卓版
 
-### 2. 爬虫介绍：
+### 2. app爬虫介绍：
 使用的是selenium采集七麦网的数据
 
 
